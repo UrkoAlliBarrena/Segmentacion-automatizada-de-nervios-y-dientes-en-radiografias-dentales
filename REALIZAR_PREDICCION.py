@@ -1,3 +1,7 @@
+# https://docs.python.org/es/3.13/library/shutil.html
+# https://stackoverflow.com/questions/21261132/shutil-rmtree-to-remove-readonly-files
+# https://docs.python.org/es/dev/library/stat.html
+
 from ultralytics import YOLO
 import os
 from collections import defaultdict
