@@ -329,8 +329,8 @@ def eliminar_carpetas():
     carpetas = ["predicciones_postprocesadas", "runs", "FINAL", "MASCARAS_FINAL", "SKELETON"]
     for carpeta in carpetas:
         if os.path.isdir(carpeta):
-    try:
-        shutil.rmtree(carpeta, onerror=lambda funcion, ruta, detalles: (os.chmod(ruta, stat.S_IWRITE),funcion(ruta)))
-        print(f"✅ Carpeta eliminada: {carpeta}")
-    except Exception as error:
-        print(f"❌ Error al eliminar {carpeta}: {error}")
+            try:
+                shutil.rmtree(carpeta, onerror=lambda funcion, ruta, detalles: (os.chmod(ruta, stat.S_IWRITE),funcion(ruta)))
+                print(f"✅ Carpeta eliminada: {carpeta}")
+            except Exception as error:
+                print(f"❌ Error al eliminar {carpeta}: {error}")
