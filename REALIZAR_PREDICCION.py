@@ -1,7 +1,3 @@
-# https://docs.python.org/es/3.13/library/shutil.html
-# https://stackoverflow.com/questions/21261132/shutil-rmtree-to-remove-readonly-files
-# https://docs.python.org/es/dev/library/stat.html
-
 from ultralytics import YOLO
 import os
 from collections import defaultdict
@@ -333,9 +329,8 @@ def eliminar_carpetas():
     carpetas = ["predicciones_postprocesadas", "runs", "FINAL", "MASCARAS_FINAL", "SKELETON"]
     for carpeta in carpetas:
         if os.path.isdir(carpeta):
-            try:
-                shutil.rmtree(carpeta, onerror=lambda func, path, _: (
-                    os.chmod(path, stat.S_IWRITE), func(path)))
-                print(f"✅ Carpeta eliminada: {carpeta}")
-            except Exception as e:
-                print(f"❌ Error al eliminar {carpeta}: {e}")
+    try:
+        shutil.rmtree(carpeta, onerror=lambda funcion, ruta, detalles: (os.chmod(ruta, stat.S_IWRITE),funcion(ruta)))
+        print(f"✅ Carpeta eliminada: {carpeta}")
+    except Exception as error:
+        print(f"❌ Error al eliminar {carpeta}: {error}")
