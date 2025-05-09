@@ -12,6 +12,7 @@ from skimage.color import rgb2gray
 from skimage.util import img_as_ubyte
 import shutil
 import stat
+import math
 
 
 def predecir_con_mejor_modelo(ruta_mejor_modelo, ruta_imagen):
@@ -315,6 +316,39 @@ def obtener_imagenes_skeleton(ruta_entrada, ruta_salida):
             cv2.imwrite(ruta_guardado, cv2.cvtColor(resultado, cv2.COLOR_RGB2BGR))
     return resultado
 
+def obtener_longitud_esqueleto(imagen, anchura = 0.0258, altura = 0.0256):
+    '''
+    Funcionalidad:
+      Permite calcular la longitud del esqueleto de una imagen binaria de segmentación de canal radicular. La anchura y altura toman los valores por defecto
+      establecidos por el odontólogo.
+
+    Parámetros:
+      - imagen (string): ruta de la imagen (escala de grises) donde el esqueleto está representado con píxeles de color blanco; es decir, 1.
+      - anchura (float): escala en milímetros por píxel en el eje horizontal. Por defecto 0.0258 milímetros.
+      - altura (float): escala en milímetros por píxel en el eje vertical. Por defecto 0.0256 milímetros
+
+    Returns:
+      - longitud (float): longitud total del esqueleto en milímetros.
+    '''
+    diagonal = math.sqrt(anchura**2 + altura**2)
+    if imagen.ndim == 3:
+        imagen = imagen[..., 0]
+    esqueleto = (imagen > 0).astype(np.uint8)
+    coordenadas_y, coordenadas_x = np.where(esqueleto == 1)
+    coordenadas = list(zip(coordenadas_y, coordenadas_x))
+    longitud = 0
+    for indice_coordenada in range(1, len(coordenadas)):
+        coordenada_y_anterior, coordenada_x_anterior = coordenadas[indice_coordenada-1]
+        coordenada_y_actual, coordenada_x_actual = coordenadas[indice_coordenada]
+        distancia_y, distancia_x = abs(coordenada_y_actual - coordenada_y_anterior), abs(coordenada_x_actual - coordenada_x_anterior)
+        if distancia_x == 1 and distancia_y == 1:
+            longitud += diagonal
+        elif distancia_x == 1 and distancia_y == 0:
+            longitud += anchura
+        elif distancia_x == 0 and distancia_y == 1:
+            longitud += altura
+    return longitud
+
 def eliminar_carpetas():
     '''
     Funcionalidad:
@@ -329,8 +363,4 @@ def eliminar_carpetas():
     carpetas = ["predicciones_postprocesadas", "runs", "FINAL", "MASCARAS_FINAL", "SKELETON"]
     for carpeta in carpetas:
         if os.path.isdir(carpeta):
-            try:
-                shutil.rmtree(carpeta, onerror=lambda funcion, ruta, detalles: (os.chmod(ruta, stat.S_IWRITE),funcion(ruta)))
-                print(f"✅ Carpeta eliminada: {carpeta}")
-            except Exception as error:
-                print(f"❌ Error al eliminar {carpeta}: {error}")
+            shutil.rmtree(carpeta, onerror=lambda funcion, ruta, info: (os.chmod(ruta, stat.S_IWRITE), funcion(ruta)))
