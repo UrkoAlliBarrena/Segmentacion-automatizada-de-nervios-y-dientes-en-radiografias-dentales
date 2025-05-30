@@ -52,7 +52,7 @@ def entrenamiento_validacion(directorio_datasets, indice_dataset):
     """
     ruta_data_yaml = os.path.join(directorio_datasets, f'dataset{indice_dataset}.yaml')
     model = YOLO('yolo11n-seg.pt')
-    model.train(task='segment', mode='train', data=ruta_data_yaml, epochs=300, val=True, patience=100, augment=True, imgsz=1024)#, save_json=True)
+    model.train(task='segment', mode='train', data=ruta_data_yaml, epochs=300, val=True, patience=100, augment=True, imgsz=1280)#, save_json=True)
 
 def obtener_datasets(directorio_datasets):
     """
@@ -86,7 +86,8 @@ def ejecutar_entrenamiento(directorio_datasets):
 def encontrar_mejor_modelo(ruta_ejecucion="/content/runs/segment/"):
     """
     Objetivo:
-        Permite encontrar el mejor modelo entrenado basándose en la métrica mAP50-95.
+        Permite encontrar el mejor modelo entrenado basándose en la métrica mAP50-95. Y en caso de que dos modelos
+        coincidan en su valor, se escogerá aquél con mayor precisión.
 
     Parámetros:
         runs_path (str): ruta donde se almacenan las carpetas de entrenamiento generadas por YOLO.
@@ -99,6 +100,7 @@ def encontrar_mejor_modelo(ruta_ejecucion="/content/runs/segment/"):
         key=lambda x: int(x.replace("train", "")) if x.replace("train", "").isdigit() else 0
     )
     mejor_mAP = 0
+    mejor_precision = 0
     mejor_modelo = None
     for carpeta in carpetas_entrenamiento:
         carpeta_entrenamiento = os.path.join(ruta_ejecucion, carpeta)
@@ -111,6 +113,11 @@ def encontrar_mejor_modelo(ruta_ejecucion="/content/runs/segment/"):
                 if max_mAP > mejor_mAP:
                     mejor_mAP = max_mAP
                     mejor_modelo = ruta_mejor_modelo
+                if max_mAP == mejor_mAP:
+                    max_precision = resultados["metrics/precision(B)"].max()
+                    if max_precision > mejor_precision:
+                        mejor_precision = max_precision
+                        mejor_modelo = ruta_mejor_modelo
     return mejor_modelo
 
 def predecir_con_mejor_modelo(ruta_mejor_modelo, directorio_datasets):
