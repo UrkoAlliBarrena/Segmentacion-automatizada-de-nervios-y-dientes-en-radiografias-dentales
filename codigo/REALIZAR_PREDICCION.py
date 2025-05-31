@@ -176,7 +176,7 @@ def procesar_archivo(ruta_etiqueta, ruta_imagen, ruta_salida):
         ruta_destino = os.path.join(ruta_salida, f"{nombre_base}.png")
         cv2.imwrite(ruta_destino, imagen_procesada)
 
-def postprocesado(ruta_etiquetas, ruta_imagen, ruta_salida):
+def preprocesado(ruta_etiquetas, ruta_imagen, ruta_salida):
     '''
     Funcionalidad:
       Permite crear el directorio de salida donde se almacenarán los contornos dibujados. Para ello recorre los archivos de
@@ -204,7 +204,7 @@ def umbralizar(ruta_imagen):
     '''
     Funcionalidad:
       Permite umbralizar imágenes RGB. Las imágenes que se van a umbralizar proceden de las obtenidas mediante la 
-      función _postprocesado()_
+      función _preprocesado()_
 
     Parámetros:
       - ruta_imagen (str): ruta de la imagen que se quiere umbralizar.
@@ -237,17 +237,14 @@ def aplicar_area_closing(imagen):
 def procesar_imagen(ruta_imagen, ruta_mascaras_salida):
     '''
     Funcionalidad:
-      Permite obtener dos imágenes (original y predicha), umbralizarlas, aplicar el cierre de área, almacenarlas en una
-      nueva carpeta y calcular las métricas.
-      de evaluación entre las máscaras de ambas imágenes.
+      Permite umbralizar, aplicar el cierre de área y almacenar en una nueva carpeta una máscara.
 
     Parámetros:
-      - nombre_imagen (str): nmbre de la imagen a procesar.
-      - ruta_predichas (str): ruta de las imágenes predichas.
-      - ruta_originales (str): ruta de las imágenes originales.
+      - ruta_imagen (str): ruta de la imagen a procesar.
+      - ruta_mascaras_salida (str): ruta del directorio donde se va a almacenar la máscara del canal radicular presente en la imagen.
 
     Returns:
-      - calcular_metricas(pred_closing, orig_closing) (tuple): métricas de evaluación.
+      - imagen_a_guardar: imagen con la máscara segmentada.
     '''
     predicha = umbralizar(ruta_imagen)
     predicciones_closing = aplicar_area_closing(predicha)

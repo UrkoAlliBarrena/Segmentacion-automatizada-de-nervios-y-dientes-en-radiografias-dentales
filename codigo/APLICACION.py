@@ -222,7 +222,7 @@ class Aplicacion(customtkinter.CTk):
         REALIZAR_PREDICCION.guardar_predicciones_postprocesadas()
 
         directorio = os.path.dirname(ruta)
-        REALIZAR_PREDICCION.postprocesado("runs/segment/predict/labels", directorio, "FINAL")
+        REALIZAR_PREDICCION.preprocesado("runs/segment/predict/labels", directorio, "FINAL")
 
         mascara = REALIZAR_PREDICCION.procesar_imagen(os.path.join("FINAL", nombre_imagen), "MASCARAS_FINAL")
         self.after(0, lambda: self.obtener_imagen(mascara, self.panel_mascara))
