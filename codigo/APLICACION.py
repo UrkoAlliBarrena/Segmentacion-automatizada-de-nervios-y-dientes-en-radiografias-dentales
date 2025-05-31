@@ -140,9 +140,9 @@ class Aplicacion(customtkinter.CTk):
           - None: no devuelve nada.
         """
         imagen = Image.open(ruta_imagen) if isinstance(ruta_imagen, str) else Image.fromarray(ruta_imagen.astype(np.uint8))
-        self.after(0, lambda: self._mostrar_imagen(imagen, panel_imagen))
+        self.after(0, lambda: self.mostrar_imagen(imagen, panel_imagen))
 
-    def _mostrar_imagen(self, imagen, panel_imagen):
+    def mostrar_imagen(self, imagen, panel_imagen):
         """
         Funcionalidad:
           Permite redimensionar el tamaño de la imagen si esta es demasiado grande y mostrar la imagen en el panel.
@@ -194,16 +194,7 @@ class Aplicacion(customtkinter.CTk):
                 imagen_original = panel.image._light_image
                 ruta_guardado = os.path.join(carpeta, nombre_base_imagen + tipo_imagen)
                 imagen_original.save(ruta_guardado)
-        #Nuevo
-        '''
-        texto_long = self.longitud.cget("text")
-        valor = re.sub(r"[^\d\.,]", "", texto_long).replace(",", ".")
-        longitud_predicha = f"Longitud: {valor} mm"
-        ruta_excel = os.path.join(carpeta, "Results.xlsx")
-        REALIZAR_PREDICCION.registrar_resultado_en_excel(self.imagen_seleccionada, longitud_predicha, ruta_excel)
-        '''
 
-        
     def realizar_prediccion(self):
         """
         Funcionalidad:
