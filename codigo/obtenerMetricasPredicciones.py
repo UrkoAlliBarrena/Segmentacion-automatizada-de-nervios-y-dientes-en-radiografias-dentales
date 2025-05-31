@@ -97,7 +97,7 @@ def procesar_archivo(ruta_etiqueta, ruta_imagen, ruta_salida):
         ruta_destino = os.path.join(ruta_salida, f"{nombre_base}.png")
         cv2.imwrite(ruta_destino, imagen_procesada)
 
-def postprocesado(ruta_etiquetas, ruta_imagenes, ruta_salida):
+def preprocesado(ruta_etiquetas, ruta_imagenes, ruta_salida):
     '''
     Funcionalidad:
       Permite crear el directorio de salida donde se almacenarán los contornos dibujados. Para ello recorre los archivos de
@@ -125,7 +125,7 @@ def umbralizar(ruta_imagen):
     '''
     Funcionalidad:
       Permite umbralizar imágenes RGB. Las imágenes que se van a umbralizar proceden de las obtenidas mediante la 
-      función _postprocesado()_
+      función _preprocesado()_
 
     Parámetros:
       - ruta_imagen (str): ruta de la imagen que se quiere umbralizar.
@@ -354,8 +354,8 @@ def binarizar_y_metricas(eliminar = True):
     ruta_imagenes = 'Dataset/images'
 
     print ("Obteniendo métricas...")
-    postprocesado(ruta_etiquetas_originales, ruta_imagenes, ruta_salida_originales)
-    postprocesado(ruta_etiquetas_predicciones, ruta_imagenes, ruta_salida_predicciones)
+    preprocesado(ruta_etiquetas_originales, ruta_imagenes, ruta_salida_originales)
+    preprocesado(ruta_etiquetas_predicciones, ruta_imagenes, ruta_salida_predicciones)
     ruta_salida_mascaras_predichas = "MASCARAS_PREDICHAS"
     metricas = obtener_metricas(ruta_salida_predicciones, ruta_salida_originales, ruta_salida_mascaras_predichas)
     print ("Métricas obtenidas")
