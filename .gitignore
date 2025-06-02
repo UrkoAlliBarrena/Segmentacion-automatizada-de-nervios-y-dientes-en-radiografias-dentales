@@ -1,0 +1,7 @@
+# Ignora los siguientes archivos:
+
+# Archivos compilados
+__pycache__/
+
+# Jupyter
+.ipynb_checkpoints/
