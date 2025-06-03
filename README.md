@@ -7,7 +7,7 @@
 
 ---
 
-En este repositorio se encuentran todos los recursos necesarios del Trabajo de Fin de Grado titulado **"Segmentación automatizada de nervios y dientes en radiografías dentales"**, el cual ha sido desarrollado por **Urko Alli Barrena** en la Universidad de Burgos, en el grado de Ingeniería de la Salud. El objetivo principal de este proyecto envuelve la utilización de técnicas de aprendizaje profundo para llevar a cabo la segmentación automática del canal radicular y diente a partir de radiografías dentales, para lograr la estimación de la longitud del nervio (canal radicular) de manera precisa y fiable.
+En este repositorio se encuentran todos los recursos necesarios del Trabajo de Fin de Grado titulado **"Segmentación automatizada de nervios y dientes en radiografías dentales. Y estimación de la longitud del nervio."**, el cual ha sido desarrollado por **Urko Alli Barrena** en la Universidad de Burgos, en el grado de Ingeniería de la Salud. El objetivo principal de este proyecto envuelve la utilización de técnicas de aprendizaje profundo para llevar a cabo la segmentación automática del canal radicular y diente a partir de radiografías dentales, para lograr la estimación de la longitud del nervio (canal radicular) de manera precisa y fiable.
 
 ---
 
