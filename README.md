@@ -85,13 +85,9 @@ Cabe destacar, que para la implementación de este proyecto se ha hecho uso del 
 ## Resultados
 A continuación se muestran varios resultados de segmentación de canal radicular y diente, donde las máscaras segmentadas han sido predichas por el modelo previamente entrenado.
 
-![Ejemplo de segmentación del caso 80]()
+![Ejemplo de segmentación del caso 80](resultados/ejemplosSegmentacion/CASO_80.jpg)
 
-![Ejemplo de segmentación del caso 88]()
-
-![Ejemplo de segmentación del caso 93]()
-
-![Ejemplo de segmentación del caso 95]()
+![Ejemplo de segmentación del caso 95](resultados/ejemplosSegmentacion/CASO_95.jpg)
 
 
 ## Aplicación
