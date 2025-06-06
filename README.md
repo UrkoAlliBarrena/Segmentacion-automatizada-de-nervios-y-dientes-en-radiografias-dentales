@@ -17,7 +17,9 @@ En este repositorio se encuentran todos los recursos necesarios del Trabajo de F
 2. [Características Principales](#características-principales)
 3. [Estructura del Repositorio](#estructura-del-repositorio)
 4. [Procedimiento](#procedimiento)
-5. [Futuras Líneas de Trabajo](#futuras-líneas-de-trabajo)
+5. [Resultados](#resultados)
+6. [Aplicación](#aplicacion)
+7. [Futuras Líneas de Trabajo](#futuras-líneas-de-trabajo)
 
 ---
 
@@ -79,6 +81,26 @@ Cabe destacar, que para la implementación de este proyecto se ha hecho uso del 
 7. Desarrollo de aplicación (_APP_).
 
 ---
+
+## Resultados
+A continuación se muestran varios resultados de segmentación de canal radicular y diente, donde las máscaras segmentadas han sido predichas por el modelo previamente entrenado.
+
+![Ejemplo de segmentación del caso 80]()
+
+![Ejemplo de segmentación del caso 88]()
+
+![Ejemplo de segmentación del caso 93]()
+
+![Ejemplo de segmentación del caso 95]()
+
+
+## Aplicación
+En esta sección se muestra un ejemplo de la iniciación de la aplicación, y seguidamente un ejecución de la misma con el objetivo de estimar la longitud sobre una radiografía dental.
+
+![Inicio de la aplicación]()
+
+![Estimación de la longitud del nervio en la _APP_]()
+
 
 ## Futuras Líneas de Trabajo
 
