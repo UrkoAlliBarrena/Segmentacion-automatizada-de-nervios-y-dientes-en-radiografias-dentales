@@ -85,17 +85,23 @@ Cabe destacar, que para la implementación de este proyecto se ha hecho uso del 
 ## Resultados
 A continuación se muestran varios resultados de segmentación de canal radicular y diente, donde las máscaras segmentadas han sido predichas por el modelo previamente entrenado.
 
-![Ejemplo de segmentación del caso 80](resultados/ejemplosSegmentacion/CASO_80.jpg)
+<p align="center">
+  <img src="resultados/ejemplosSegmentacion/CASO_80.jpg" alt="CASO 80" width="300"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="resultados/ejemplosSegmentacion/CASO_95.jpg" alt="CASO 95" width="300"/>
+</p>
 
-![Ejemplo de segmentación del caso 95](resultados/ejemplosSegmentacion/CASO_95.jpg)
+<p align="center">
+  <em>En azul oscuro la máscara predicha del canal radicular, y en azul más claro la máscara predicha del diente.</em>
+</p>
 
 
 ## Aplicación
 En esta sección se muestra un ejemplo de la iniciación de la aplicación, y seguidamente un ejecución de la misma con el objetivo de estimar la longitud sobre una radiografía dental.
 
-![Inicio de la aplicación]()
+![Pantalla inicial de la APP](app/Captura de pantalla 2025-06-05 123454.png)
 
-![Estimación de la longitud del nervio en la _APP_]()
+![Estimación de la longitud del nervio en la APP](app/Captura de pantalla 2025-06-05 123811.png)
 
 
 ## Futuras Líneas de Trabajo
