@@ -18,7 +18,7 @@ En este repositorio se encuentran todos los recursos necesarios del Trabajo de F
 3. [Estructura del Repositorio](#estructura-del-repositorio)
 4. [Procedimiento](#procedimiento)
 5. [Resultados](#resultados)
-6. [Aplicación](#aplicacion)
+6. [Aplicación](#aplicación)
 7. [Futuras Líneas de Trabajo](#futuras-líneas-de-trabajo)
 
 ---
