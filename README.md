@@ -99,9 +99,16 @@ A continuación se muestran varios resultados de segmentación de canal radicula
 ## Aplicación
 En esta sección se muestra un ejemplo de la iniciación de la aplicación, y seguidamente un ejecución de la misma con el objetivo de estimar la longitud sobre una radiografía dental.
 
-![Pantalla inicial de la APP](app/Captura de pantalla 2025-06-05 123454.png)
 
-![Estimación de la longitud del nervio en la APP](app/Captura de pantalla 2025-06-05 123811.png)
+![Pantalla inicial de la APP](app/Captura%20de%20pantalla%202025-06-05%20123454.png)
+<p align="center">
+  <em>Pantalla de inicio de la aplicación antes de realizarse cualquier proceso.</em>
+</p>
+
+![Estimación de la longitud del nervio en la APP](app/Captura%20de%20pantalla%202025-06-05%20123811.png)
+<p align="center">
+  <em>Ejemplo de ejecución de predicción para la estimación de la longitud del canal radicular sobre una radiografía dental</em>
+</p>
 
 
 ## Futuras Líneas de Trabajo
