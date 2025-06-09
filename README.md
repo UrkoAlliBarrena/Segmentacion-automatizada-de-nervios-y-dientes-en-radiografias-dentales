@@ -101,7 +101,7 @@ En esta sección se muestra un ejemplo de la iniciación de la aplicación, y se
 
 <br>
 
-![Pantalla inicial de la APP](app/Captura%20de%20pantalla%202025-06-05%20123454.png)
+![Pantalla inicial de la APP](app/pantalla_inicio_app.png)
 
 <p align="center">
   <em>Pantalla de inicio de la aplicación antes de realizarse cualquier proceso.</em>
@@ -109,7 +109,7 @@ En esta sección se muestra un ejemplo de la iniciación de la aplicación, y se
 
 <br><br>
 
-![Estimación de la longitud del nervio en la APP](app/Captura%20de%20pantalla%202025-06-05%20123811.png)
+![Estimación de la longitud del nervio en la APP](app/pantalla_ejecucion_app.png)
 
 <p align="center">
   <em>Ejemplo de ejecución de predicción para la estimación de la longitud del canal radicular sobre una radiografía dental</em>
